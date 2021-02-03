@@ -7,6 +7,8 @@ import sys
 import os.path
 import csv
 
+from  StrapsMainWindow import Ui_MainWindow
+
 
 STRAPS_LIST = ["Рядовой", "Ефрейтор", "Младший сержант", "Сержант", "Старший Сержант", "Старшина", "Прапорщик",
                "Старший Прапорщик", "Младший Лейтенант", "Лейтенант", "Старший Лейтенант", "Капитан", "Майор",
@@ -15,15 +17,13 @@ STRAPS_LIST = ["Рядовой", "Ефрейтор", "Младший сержа�
 STRAPS_IMAGES_DIR = "Images"
 STRAPS_NUM = 10
 
-UI_FILENAME = "StrapsMainWindow.ui"
-
 RESULTS_FILENAME = "Результаты.csv"
 
 
-class StrapsMainWindow(QMainWindow):
+class StrapsMainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi(UI_FILENAME, self)
+        self.setupUi(self)
 
         self.window_definition()
         self.calls_processing()
